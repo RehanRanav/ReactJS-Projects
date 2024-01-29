@@ -13,16 +13,19 @@ const Calc = () => {
     setList(!list);
   }
   function open_trigonometry(event) {
-      setTrigonometryflag(!trigonometryflag);
-      setFunctionflag(false);
-      event.stopPropagation();
+    console.log(event);
+    setTrigonometryflag(!trigonometryflag);
+    setFunctionflag(false);
+    event.preventDefault();
   }
   function open_functions() {
     setFunctionflag(!functionflag);
     setTrigonometryflag(false);
   }
-  function trigonometry_inverse() {
+  function trigonometry_inverse(event) {
+    console.log(event);
     setInverseflag(true);
+    event.preventDefault();
   }
 
   return (
@@ -50,18 +53,22 @@ const Calc = () => {
         <div
           className="flex justify-center items-center gap-x-2 p-2 m-1 cursor-pointer relative"
           id="trigonometry"
-          onClick={(e)=> open_trigonometry(e)}
         >
-          <span>⊿</span>
-          <span>Trigonometry</span>
-          <div className="w-0 h-0 border-x-4 border-solid border-transparent border-t-4 border-t-black"></div>
+          <div onClick={(e) => open_trigonometry(e)} className="flex justify-center items-center gap-1">
+            <span>⊿</span>
+            <span>Trigonometry</span>
+            <div className="w-0 h-0 border-x-4 border-solid border-transparent border-t-4 border-t-black"></div>
+          </div>
 
           <div
             className={`${
               trigonometryflag ? "grid" : "hidden"
             } grid-cols-4 bg-slate-200 rounded absolute top-10 right-0 -left-2.5 z-10 p-1 border-2 border-solid border-slate-200 w-48`}
           >
-            <Button name="2<sup>nd</sup>" onClick={trigonometry_inverse} />
+            <Button
+              name="2<sup>nd</sup>"
+              onClick={(e) => trigonometry_inverse(e)}
+            />
             <Button name="hyp" />
             <Button name={`${inverseflag ? "Sin<sup>-1<sup>" : "Sin"}`} />
             <Button name="Csc" />
