@@ -1,0 +1,23 @@
+[
+    {
+        "name": "MC",
+        "Click_event" : "memory_clear"
+    },
+    {
+        "name": "MR",
+        "Click_event" : "memory_recall"
+    },
+    {
+        "name": "M+",
+        "Click_event" : "memory_add"
+        },
+    {
+        "name": "M-",
+        "Click_event" : "memory_subtract"
+        
+    },
+    {
+        "name": "MS",
+        "Click_event" : "memory_store"
+    }
+]

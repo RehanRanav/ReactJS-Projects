@@ -1,0 +1,140 @@
+[
+    {
+        "name": "&Pi;",
+        "Click_event": "add_values",
+        "value": "PI"
+    },
+    {
+        "name": "e",
+        "Click_event": "add_values",
+        "value": "E"
+    },
+    {
+        "name": "C",
+        "Click_event": "clearInput",
+        "flag": "true"
+    },
+    {
+        "name": "&#8592;",
+        "Click_event": "backspace",
+        "flag": "true"
+    },
+    {
+        "name": "<sup>1</sup>/<sub>x</sub>",
+        "Click_event": "print_value",
+        "value": "1/"
+    },
+    {
+        "name": "|x|",
+        "Click_event": "find_abs"
+    },
+    {
+        "name": "exp",
+        "Click_event": "print_value",
+        "value": ".e+"
+    },
+    {
+        "name": "mod",
+        "Click_event": "print_value",
+        "value": "%"
+    },
+    {
+        "name": "(",
+        "Click_event": "print_value",
+        "value": "("
+    },
+    {
+        "name": ")",
+        "Click_event": "print_value",
+        "value": ")"
+    },
+    {
+        "name": "n!",
+        "Click_event": "find_fact"
+    },
+    {
+        "name": "&#xF7;",
+        "Click_event": "print_value",
+        "value": "/"
+    },
+    {
+        "name": "7",
+        "Click_event": "print_value",
+        "value": "7"
+    },
+    {
+        "name": "8",
+        "Click_event": "print_value",
+        "value": "8"
+    },
+    {
+        "name": "9",
+        "Click_event": "print_value",
+        "value": "9"
+    },
+    {
+        "name": "x",
+        "Click_event": "print_value",
+        "value": "*"
+    },
+    {
+        "name": "4",
+        "Click_event": "print_value",
+        "value": "4"
+    },
+    {
+        "name": "5",
+        "Click_event": "print_value",
+        "value": "5"
+    },
+    {
+        "name": "6",
+        "Click_event": "print_value",
+        "value": "6"
+    },
+    {
+        "name": "-",
+        "Click_event": "print_value",
+        "value": "-"
+    },
+    {
+        "name": "1",
+        "Click_event": "print_value",
+        "value": "1"
+    },
+    {
+        "name": "2",
+        "Click_event": "print_value",
+        "value": "2"
+    },
+    {
+        "name": "3",
+        "Click_event": "print_value",
+        "value": "3"
+    },
+    {
+        "name": "+",
+        "Click_event": "print_value",
+        "value": "+"
+    },
+    {
+        "name": "<sup>+</sup>/<sub>-</sub>",
+        "Click_event": "change_sign"
+    },
+    {
+        "name": "0",
+        "Click_event": "print_value",
+        "value": "0"
+    },
+    {
+        "name": ".",
+        "Click_event": "print_value",
+        "value": "."
+    },
+    {
+        "name": "=",
+        "flag": "true",
+        "Click_event": "show"
+    }
+
+]
