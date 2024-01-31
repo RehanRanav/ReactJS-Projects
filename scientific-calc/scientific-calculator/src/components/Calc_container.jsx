@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import Output from "./Output";
 import Button from "./Button";
-import memory_btn_json from "./memory_btn_data.json";
-import btn_json from "./btn_data.json";
+import memory_btn_json from "../json/memory_btn_data.json";
+import btn_json from "../json/btn_data.json";
 import Memory_functions from "../utils/Memory_functions";
 import { ExpressionContext } from "../ExpressionContext";
 import Handle_click from "../utils/Handle_click";

@@ -10,7 +10,7 @@ const Output = () => {
     output.current.addEventListener("input", function (event) {
       let inputValue = event.target.value;
 
-      event.target.value = inputValue.replace(/[^0-9+\-^*/%.e()log]/g, "");
+      event.target.value = inputValue.replace(/[^0-9+\-^√*/%.e()log]/g, "");
 
       let selectionStart = event.target.selectionStart;
       let selectionEnd = event.target.selectionEnd;

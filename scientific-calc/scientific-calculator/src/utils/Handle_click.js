@@ -8,7 +8,7 @@ const Handle_click = (val, expression, ...args) => {
     switch (label) {
 
         case "print_value": {
-            if (result === "ERROR!" || result === undefined) {
+            if (result === "ERROR!" || result === undefined || result === "Infinity" || result === "NaN") {
                 console.log(result);
                 result = clearInput();
             }
@@ -77,42 +77,66 @@ const Handle_click = (val, expression, ...args) => {
 
             if (result.includes(`log10(`)) {
                 result = find_log10(result);
+                if(isNaN(result)) {
+                    result = "ERROR!";
+                }
                 return result;
             }
 
             if (result.includes(`ylog`)) {
                 result = find_logyx(result);
+                if(isNaN(result)) {
+                    result = "ERROR!";
+                }
                 return result;
             }
 
             if (result.includes(`ln`)) {
                 result = find_loge(result);
+                if(isNaN(result)) {
+                    result = "ERROR!";
+                }
                 return result;
             }
 
             if (result.includes(`e^`)) {
                 result = find_exponential(result);
+                if(isNaN(result)) {
+                    result = "ERROR!";
+                }
                 return result;
             }
 
             if (result.includes(`+e0`)) {
                 result = find_fixed_decimal(result);
+                if(isNaN(result)) {
+                    result = "ERROR!";
+                }
                 return result;
             }
 
             if (result.includes(`.e+`)) {
                 result = calculate_exponent(result);
+                if(isNaN(result)) {
+                    result = "ERROR!";
+                }
                 return result;
             }
 
             if (result.includes(`√`)) {
                 result = calculate_root(result);
+                if(isNaN(result)) {
+                    result = "ERROR!";
+                }
                 return result;
 
             }
 
             if (result.includes(`^`)) {
                 result = calculate_power(result);
+                if(isNaN(result)) {
+                    result = "ERROR!";
+                }
                 return result;
 
             }
@@ -120,6 +144,10 @@ const Handle_click = (val, expression, ...args) => {
             if (result.includes(`+`) || result.includes(`-`) || result.includes(`*`) || result.includes(`/`) || result.includes(`%`)) {
                 result = arithmetic_operation(result);
                 console.log(result);
+
+                if(isNaN(result)) {
+                    result = "ERROR!";
+                }
 
                 return result;
             } else {
@@ -236,9 +264,9 @@ const Handle_click = (val, expression, ...args) => {
 
 
     function calculate_exponent(val) {
-        let result = val;
-
+        
         try {
+            let result = val;
             let ans = result.replace(/^(\d+(\.\d+)?)\.e\+(\d+)$/g, function (match, base, temp, exponent) {
                 console.log(base, exponent, match)
                 let expResult = Number(base) * Math.pow(10, Number(exponent));
@@ -338,6 +366,7 @@ const Handle_click = (val, expression, ...args) => {
             while (operators.length > 0) {
                 applyOperation(operators, values);
             }
+            console.log(values[0])
             // The final result is the only value left in the values stack
             if(values[0] === Infinity || values[0] === undefined)
             {
