@@ -3,6 +3,7 @@ import arrow from "../images/arrow_forward.svg";
 import Notask from "../images/Notasks.jpg";
 import TaskCard from "./TaskCard";
 import { TaskContext } from "../TaskContext";
+import { toast } from "react-toastify"
 
 
 
@@ -34,6 +35,8 @@ const AddTodo = () => {
     }
     taskref.current.value = ``;
     console.log(tasklist);
+
+    toast.success('Task Added Successfully...');
   };
 
   const editTask = (index) => {

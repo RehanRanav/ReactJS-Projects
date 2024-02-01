@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import Deletebtn from "../images/trash.svg";
 import Editbtn from "../images/edit.svg";
 import { TaskContext } from "../TaskContext";
+import { toast } from "react-toastify";
 
 const TaskCard = ({ task, index, handleEdit, status }) => {
   const { setTasklist, tasklist } = useContext(TaskContext);
@@ -15,6 +16,8 @@ const TaskCard = ({ task, index, handleEdit, status }) => {
     let updatedTasks = [...tasklist];
     updatedTasks.splice(index, 1);
     setTasklist(updatedTasks);
+
+    toast.warning("Task Deleted Successfully...");
   };
 
   const handleStatus = () => {
@@ -22,13 +25,20 @@ const TaskCard = ({ task, index, handleEdit, status }) => {
     updatedTasks[index].status = !completeTask;
     setTasklist(updatedTasks);
     setCompleteTask(!completeTask);
+    handleStatusToast();
   };
 
-  useEffect(()=>{
-    if(status === true){
-        checkRef.current.checked = true;
+  function handleStatusToast() {
+    if (completeTask === true) {
+      toast.info("👏 Good Job! Task Completed...");
     }
-  },[]);
+  }
+
+  useEffect(() => {
+    if (status === true) {
+      checkRef.current.checked = true;
+    }
+  }, []);
 
   return (
     <div className="flex justify-between gap-2 border h-fit w-full p-3 rounded shadow-md">
