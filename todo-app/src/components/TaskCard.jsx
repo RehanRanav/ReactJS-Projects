@@ -24,15 +24,11 @@ const TaskCard = ({ task, index, handleEdit, status }) => {
     let updatedTasks = [...tasklist];
     updatedTasks[index].status = !completeTask;
     setTasklist(updatedTasks);
-    setCompleteTask(!completeTask);
-    handleStatusToast();
-  };
-
-  function handleStatusToast() {
-    if (completeTask === true) {
+    if (!completeTask) {
       toast.info("👏 Good Job! Task Completed...");
     }
-  }
+    setCompleteTask(!completeTask);
+  };
 
   useEffect(() => {
     if (status === true) {
@@ -41,7 +37,7 @@ const TaskCard = ({ task, index, handleEdit, status }) => {
   }, []);
 
   return (
-    <div className="flex justify-between gap-2 border h-fit w-full p-3 rounded shadow-md">
+    <div className="flex justify-between gap-2 border h-fit w-full p-3 rounded shadow-md font-mono">
       <p className={completeTaskStyle}>{task}</p>
 
       <div className="flex justify-end items-center flex-wrap gap-3">
