@@ -13,8 +13,9 @@ const AddTodo = () => {
   useEffect(() => {
     let tasks = localStorage.getItem("tasklist");
     tasks = JSON.parse(tasks);
-    console.log(tasks);
-    setTasklist(tasks);
+    if (tasks !== null) {
+      setTasklist(tasks);
+    }
   }, []);
 
   useEffect(() => {
@@ -23,11 +24,11 @@ const AddTodo = () => {
     }, 800);
   }, [tasklist]);
 
-  useEffect(()=>{
-    document.addEventListener("keydown", function(){
+  useEffect(() => {
+    document.addEventListener("keydown", function () {
       taskref.current.focus();
-    })
-  })
+    });
+  });
 
   const addTask = useCallback(() => {
     try {
@@ -44,7 +45,6 @@ const AddTodo = () => {
         toast.error("Please Enter the task...");
       }
       taskref.current.value = ``;
-      console.log(tasklist);
     } catch (e) {}
   });
 
@@ -56,10 +56,10 @@ const AddTodo = () => {
   };
 
   const handleKeyDown = (e) => {
-    if(e.key === 'Enter') {
+    if (e.key === "Enter") {
       addTask();
     }
-  }
+  };
 
   return (
     <>
@@ -69,7 +69,7 @@ const AddTodo = () => {
           type="text"
           placeholder="Enter Your To do"
           className="p-3 w-3/6 border-b-2 border-black outline-none font-mono max-sm:w-full"
-          onKeyDown={(e)=>handleKeyDown(e)}
+          onKeyDown={(e) => handleKeyDown(e)}
         />
 
         <button
